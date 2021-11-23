@@ -1,6 +1,6 @@
 <section id="work" class="work">
     <% if (it.resume.settings?.labels?.categoryProperty?.work?.categoryTitle) { %>
-        <header><%= it.resume.settings?.labels?.categoryProperty?.work?.categoryTitle %></header>
+        <header class="header"><%= it.resume.settings?.labels?.categoryProperty?.work?.categoryTitle %></header>
     <% } %>
     <div class="article-container">
         <% it.resume?.work.forEach(function(work) { %>
@@ -11,7 +11,7 @@
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.company, 
                         value: work.company,
-                        classes: 'article__title margin title'
+                        classes: 'article__title margin-left-small title'
                     }) %>
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.position, 
@@ -24,27 +24,27 @@
                         endDate: work.endDate,
                         present: work.present,
                         settings: it.resume.settings,
-                        classes: 'article__date margin'
+                        classes: 'article__date margin-left-small'
                     }) %>
                     </div>
         
                     <%~ include('key-url-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.website, 
                         value: work.website,
-                        classes: 'article__url margin'
+                        classes: 'article__url margin-left-small'
                     }) %>
                 </div>
                 <div class="article-content">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.summary, 
                         value: work.summary,
-                        classes: 'article__text margin less--width'
+                        classes: 'article__text margin-left-small less--width'
                     }) %>
                     <%~ include('list', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.highlights, 
                         data: work.highlights,
                         showLabel: true,
-                        classes: 'article__list margin less--width'
+                        classes: 'article__list margin-left-small less--width'
                     }) %>
                 </div>
             </article>

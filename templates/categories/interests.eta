@@ -1,6 +1,6 @@
 <section id="interests" class="certifications">
 	<% if(it.resume.settings?.labels?.categoryProperty?.interest?.categoryTitle) { %>
-		<header>
+		<header class="header">
 			<%= it.resume.settings.labels.categoryProperty.interest.categoryTitle %>
 		</header>
 	<% } %>
@@ -12,7 +12,7 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.interest?.name, 
 						value: interest.name,
-						classes: 'article__title margin'
+						classes: 'article__title margin-left-small'
 					}) %>
 				</div>
 				<div class="article-content">

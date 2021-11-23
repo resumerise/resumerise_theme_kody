@@ -1,6 +1,6 @@
 <section id="project" class="project">
 	<% if (it.resume.settings?.labels?.categoryProperty?.project?.categoryTitle) { %>
-		<header><%= it.resume.settings?.labels?.categoryProperty?.project?.categoryTitle %></header>
+		<header class="header"><%= it.resume.settings?.labels?.categoryProperty?.project?.categoryTitle %></header>
 	<% } %>
 	<div class="article-container">
 		<% it.resume?.projects.forEach(function(project) { %>
@@ -11,7 +11,7 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.title, 
 						value: project.title,
-						classes: 'article__title margin title'
+						classes: 'article__title margin-left-small title'
 					}) %>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.client, 
@@ -24,39 +24,39 @@
 						endDate: project.endDate,
 						present: project.present,
 						settings: it.resume.settings,
-						classes: 'article__date margin'
+						classes: 'article__date margin-left-small'
 					}) %>
 					</div>
 
 					<%~ include('key-url-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.website, 
 						value: project.website,
-						classes: 'article__url margin'
+						classes: 'article__url margin-left-small'
 					}) %>
 				</div>
 				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.summary, 
 						value: project.summary,
-						classes: 'article__text margin less--width'
+						classes: 'article__text margin-left-small less--width'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.products, 
 						data: project.products,
 						showLabel: true,
-						classes: 'article__list margin'
+						classes: 'article__list margin-left-small'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.roles, 
 						data: project.roles,
 						showLabel: true,
-						classes: 'article__list margin'
+						classes: 'article__list margin-left-small'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.highlights, 
 						data: project.highlights,
 						showLabel: true,
-						classes: 'article__list margin'
+						classes: 'article__list margin-left-small'
 					}) %>
 				</div>
 			</article>

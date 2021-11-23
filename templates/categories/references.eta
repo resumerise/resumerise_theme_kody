@@ -12,14 +12,14 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.reference?.name, 
 						value: reference.name,
-						classes: 'article__title margin'
+						classes: 'article__title margin-left-small'
 					}) %>
 				</div>
 				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.reference?.reference, 
 						value: reference.reference,
-						classes: 'no-line-article__subtitle margin'
+						classes: 'no-line-article__subtitle margin-left-small'
 					}) %>
 				</div>
 			</article>

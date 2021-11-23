@@ -1,6 +1,6 @@
 <section id="awards" class="awards">
 	<% if(it.resume.settings?.labels?.categoryProperty?.award?.categoryTitle) { %>
-		<header >
+		<header class="header">
 			<%= it.resume.settings.labels.categoryProperty.award.categoryTitle %>
 		</header>
 	<% } %>
@@ -13,7 +13,7 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.award?.title, 
 						value: award.title,
-						classes: 'article__title margin title'
+						classes: 'article__title margin-left-small title'
 					}) %>
 		           <%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.award?.awarder, 
@@ -33,7 +33,7 @@
 				<%~ include('key-value-item', {
 					label: it.resume.settings?.labels?.categoryProperty?.award?.summary, 
 					value: award.summary,
-					classes: 'article__text margin less--width'
+					classes: 'article__text margin-left-small less--width'
 				}) %>
 				</div>
 			</article>

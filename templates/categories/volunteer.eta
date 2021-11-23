@@ -1,6 +1,6 @@
 <section id="volunteer" class="volunteer">
 	<% if(it.resume.settings?.labels?.categoryProperty?.volunteer?.categoryTitle) { %>
-		<header>
+		<header class="header">
 			<%= it.resume.settings.labels.categoryProperty.volunteer.categoryTitle %>
 		</header>
 	<% } %>
@@ -13,7 +13,7 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.organization, 
 						value: volunteer.organization,
-						classes: 'article__title margin title'
+						classes: 'article__title margin-left-small title'
 					}) %>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.position, 
@@ -26,28 +26,27 @@
 						endDate: volunteer.endDate,
 						present: volunteer.present,
 						settings: it.resume.settings,
-						classes: 'article__date margin'
+						classes: 'article__date margin-left-small'
 					}) %>
 					</div>
-		
 		
 					<%~ include('key-url-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.website, 
 						value: volunteer.website,
-						classes: 'article__url margin'
+						classes: 'article__url margin-left-small'
 					}) %>
 				</div>
 				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.summary, 
 						value: volunteer.summary,
-						classes: 'article__text margin'
+						classes: 'article__text margin-left-small'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.highlights, 
 						data: volunteer.highlights,
 						showLabel: true,
-						classes: 'article__list margin'
+						classes: 'article__list margin-left-small'
 					}) %>
 				</div>
 			</article>

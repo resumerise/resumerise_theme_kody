@@ -1,6 +1,6 @@
 <section id="education" class="certifications">
 	<% if(it.resume.settings?.labels?.categoryProperty?.education?.categoryTitle) { %>
-		<header>
+		<header class="header">
 			<%= it.resume.settings.labels.categoryProperty.education.categoryTitle %>
 		</header>
 	<% } %>
@@ -13,7 +13,7 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.institution, 
 						value: education.institution,
-						classes: 'article__title margin title'
+						classes: 'article__title margin-left-small title'
 					}) %>
 							<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.area, 
@@ -26,7 +26,7 @@
 						endDate: education.endDate,
 						present: education.present,
 						settings: it.resume.settings,
-						classes: 'article__date margin'
+						classes: 'article__date margin-left-small'
 					}) %>
 					</div>
 			
@@ -35,19 +35,19 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.studyType, 
 						value: education.studyType,
-						classes: 'article__text margin less--width'
+						classes: 'article__text margin-left-small less--width'
 					}) %>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.gpa, 
 						value: education.gpa,
 						showLabel: true,
-						classes: 'article__text margin less--width'
+						classes: 'article__text margin-left-small less--width'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.courses, 
 						data: education.courses,
 						showLabel: true,
-						classes: 'article__list margin less--width'
+						classes: 'article__list margin-left-small less--width'
 					}) %>
 				</div>
 			</article>
