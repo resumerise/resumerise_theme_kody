@@ -9,12 +9,13 @@
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.education, showDelete: true, id: education.id}) %>
 				<div class="article-header">
+				<div class="title__date__container">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.institution, 
 						value: education.institution,
-						classes: 'article__title'
+						classes: 'article__title margin title'
 					}) %>
-					<%~ include('key-value-item', {
+							<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.area, 
 						value: education.area,
 						classes: 'article__subtitle'
@@ -25,26 +26,28 @@
 						endDate: education.endDate,
 						present: education.present,
 						settings: it.resume.settings,
-						classes: 'article__date'
+						classes: 'article__date margin'
 					}) %>
+					</div>
+			
 				</div>
-				<div class="article-content">
+				<div class="article-content education-article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.studyType, 
 						value: education.studyType,
-						classes: 'article__text'
+						classes: 'article__text margin less--width'
 					}) %>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.gpa, 
 						value: education.gpa,
 						showLabel: true,
-						classes: 'article__text'
+						classes: 'article__text margin less--width'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.courses, 
 						data: education.courses,
 						showLabel: true,
-						classes: 'article__list'
+						classes: 'article__list margin less--width'
 					}) %>
 				</div>
 			</article>

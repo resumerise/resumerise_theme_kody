@@ -12,14 +12,14 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.language?.language, 
 						value: language.language,
-						classes: 'article__title'
+						classes: 'article__title margin'
 					}) %>
 				</div>
 				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.language?.fluency, 
 						value: language.fluency,
-						classes: 'article__text'
+						classes: 'article__text margin'
 					}) %>
 				</div>
 			</article>

@@ -1,6 +1,6 @@
 <section id="awards" class="awards">
 	<% if(it.resume.settings?.labels?.categoryProperty?.award?.categoryTitle) { %>
-		<header>
+		<header >
 			<%= it.resume.settings.labels.categoryProperty.award.categoryTitle %>
 		</header>
 	<% } %>
@@ -9,12 +9,13 @@
 			<article>
 				<%~ include('nav', {categoryKey: it.resume.settings?.categoryKeys?.award, id: award.id, showDelete: true}) %>
 				<div class="article-header">
+				<div class="title__date__container">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.award?.title, 
 						value: award.title,
-						classes: 'article__title'
+						classes: 'article__title margin title'
 					}) %>
-					<%~ include('key-value-item', {
+		           <%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.award?.awarder, 
 						value: award.awarder,
 						classes: 'article__subtitle'
@@ -24,12 +25,15 @@
 						value: it.formatDate(award.date, it.resume.settings),
 						classes: 'article__date'
 					}) %>
+					</div>
+			
+
 				</div>
 				<div class="article-content">
 				<%~ include('key-value-item', {
 					label: it.resume.settings?.labels?.categoryProperty?.award?.summary, 
 					value: award.summary,
-					classes: 'article__text'
+					classes: 'article__text margin less--width'
 				}) %>
 				</div>
 			</article>

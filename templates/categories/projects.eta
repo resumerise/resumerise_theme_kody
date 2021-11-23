@@ -7,20 +7,16 @@
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.project, showDelete: true, id: project.id}) %>
 				<div class="article-header">
+				<div class="title__date__container">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.title, 
 						value: project.title,
-						classes: 'article__title'
+						classes: 'article__title margin title'
 					}) %>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.client, 
 						value: project.client,
 						classes: 'article__subtitle'
-					}) %>
-					<%~ include('key-url-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.website, 
-						value: project.website,
-						classes: 'article__url'
 					}) %>
 					<%~ include('date-range', {
 						formatDate: it.formatDate,
@@ -28,32 +24,39 @@
 						endDate: project.endDate,
 						present: project.present,
 						settings: it.resume.settings,
-						classes: 'article__date'
+						classes: 'article__date margin'
+					}) %>
+					</div>
+
+					<%~ include('key-url-item', {
+						label: it.resume.settings?.labels?.categoryProperty?.project?.website, 
+						value: project.website,
+						classes: 'article__url margin'
 					}) %>
 				</div>
 				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.summary, 
 						value: project.summary,
-						classes: 'article__text'
+						classes: 'article__text margin less--width'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.products, 
 						data: project.products,
 						showLabel: true,
-						classes: 'article__list'
+						classes: 'article__list margin'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.roles, 
 						data: project.roles,
 						showLabel: true,
-						classes: 'article__list'
+						classes: 'article__list margin'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.highlights, 
 						data: project.highlights,
 						showLabel: true,
-						classes: 'article__list'
+						classes: 'article__list margin'
 					}) %>
 				</div>
 			</article>

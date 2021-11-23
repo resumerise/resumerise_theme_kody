@@ -12,7 +12,7 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.interest?.name, 
 						value: interest.name,
-						classes: 'article__title'
+						classes: 'article__title margin'
 					}) %>
 				</div>
 				<div class="article-content">

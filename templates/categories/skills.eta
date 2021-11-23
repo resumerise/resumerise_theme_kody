@@ -3,22 +3,24 @@
 		<header>
 			<%= it.resume.settings.labels.categoryProperty.skill.categoryTitle %>
 		</header>
-	<% } %>
+	<% } %> 
 	<div class="article-container">
 		<% it.resume?.skills.forEach(function(skill) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.skill}) %>
 				<div class="article-header">
+				<div class="title__date__container">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.skill?.name, 
 						value: skill.name,
-						classes: 'article__title'
+						classes: 'article__title margin'
 					}) %>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.skill?.level, 
 						value: skill.level,
-						classes: 'article__subtitle'
+						classes: 'skill__article__subtitle'
 					}) %>
+					</div>
 				</div>
 				<div class="article-content">
 					<%~ include('list', {

@@ -7,20 +7,16 @@
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.work, showDelete: true, id: work.id}) %>
                 <div class="article-header">
+                <div class="title__date__container">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.company, 
                         value: work.company,
-                        classes: 'article__title'
+                        classes: 'article__title margin title'
                     }) %>
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.position, 
                         value: work.position,
                         classes: 'article__subtitle'
-                    }) %>
-                    <%~ include('key-url-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.work?.website, 
-                        value: work.website,
-                        classes: 'article__url'
                     }) %>
                     <%~ include('date-range', {
                         formatDate: it.formatDate,
@@ -28,20 +24,27 @@
                         endDate: work.endDate,
                         present: work.present,
                         settings: it.resume.settings,
-                        classes: 'article__date'
+                        classes: 'article__date margin'
+                    }) %>
+                    </div>
+        
+                    <%~ include('key-url-item', {
+                        label: it.resume.settings?.labels?.categoryProperty?.work?.website, 
+                        value: work.website,
+                        classes: 'article__url margin'
                     }) %>
                 </div>
                 <div class="article-content">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.summary, 
                         value: work.summary,
-                        classes: 'article__text'
+                        classes: 'article__text margin less--width'
                     }) %>
                     <%~ include('list', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.highlights, 
                         data: work.highlights,
                         showLabel: true,
-                        classes: 'article__list'
+                        classes: 'article__list margin less--width'
                     }) %>
                 </div>
             </article>

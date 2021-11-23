@@ -9,10 +9,11 @@
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.publication, id: publication.id, showDelete: true}) %>
                 <div class="article-header">
+                <div class="title__date__container">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.name, 
                         value: publication.name,
-                        classes: 'article__title'
+                        classes: 'article__title margin title'
                     }) %>
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.publisher, 
@@ -22,19 +23,21 @@
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.releaseDate, 
                         value: it.formatDate(publication.releaseDate, it.resume.settings),
-                        classes: 'article__date'
+                        classes: 'article__date margin'
                     }) %>
+                    </div>
+              
                     <%~ include('key-url-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.website, 
                         value: publication.website,
-                        classes: 'article__url'
+                        classes: 'article__url margin'
                     }) %>
                 </div>
                 <div class="article-content">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.summary, 
                         value: publication.summary,
-                        classes: 'article__text'
+                        classes: 'article__text margin less--width'
                     }) %>
                 </div>
             </article>
