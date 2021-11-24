@@ -10,20 +10,22 @@
 				<%~ include('nav', {categoryKey: it.resume.settings?.categoryKeys?.award, id: award.id, showDelete: true}) %>
 				<div class="article-header">
 				<div class="title__date__container">
+				<div class="article__title__subtitle__container">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.award?.title, 
 						value: award.title,
-						classes: 'article__title margin-left-small title'
+						classes: 'article__title left__section-margin-left-medium'
 					}) %>
 		           <%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.award?.awarder, 
 						value: award.awarder,
-						classes: 'article__subtitle'
+						classes: 'article__subtitle left__section-margin-left-medium'
 					}) %>
+					</div>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.award?.date, 
 						value: it.formatDate(award.date, it.resume.settings),
-						classes: 'article__date'
+						classes: 'article__date left__section__article__date'
 					}) %>
 					</div>
 			

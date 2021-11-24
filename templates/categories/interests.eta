@@ -20,7 +20,7 @@
 						label: it.resume.settings?.labels?.categoryProperty?.interest?.keywords, 
 						data: interest.keywords,
 						showLabel: false,
-						classes: 'article__list'
+						classes: 'article__list margin-left-small'
 					}) %>
 				</div>
 			</article>

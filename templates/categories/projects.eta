@@ -8,16 +8,18 @@
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.project, showDelete: true, id: project.id}) %>
 				<div class="article-header">
 				<div class="title__date__container">
+				<div class="article__title__subtitle__container">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.title, 
 						value: project.title,
-						classes: 'article__title margin-left-small title'
+						classes: 'article__title margin-left-medium title'
 					}) %>
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.client, 
 						value: project.client,
-						classes: 'article__subtitle'
+						classes: 'article__subtitle margin-left-medium'
 					}) %>
+					</div>
 					<%~ include('date-range', {
 						formatDate: it.formatDate,
 						startDate: project.startDate,
