@@ -1,6 +1,6 @@
 <section id="publications" class="publications">
 	<% if(it.resume.settings?.labels?.categoryProperty?.publication?.categoryTitle) { %>
-		<header>
+		<header class="header">
 		    <%= it.resume.settings.labels.categoryProperty.publication.categoryTitle %>
 		</header>
 	<% } %>
@@ -9,32 +9,37 @@
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.publication, id: publication.id, showDelete: true}) %>
                 <div class="article-header">
+                <div class="title__date__container">
+                <div class="article__title__subtitle__container">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.name, 
                         value: publication.name,
-                        classes: 'article__title'
+                        classes: 'article__title margin-left-medium'
                     }) %>
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.publisher, 
                         value: publication.publisher,
-                        classes: 'article__subtitle'
+                        classes: 'article__subtitle margin-left-medium'
                     }) %>
+                    </div>
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.releaseDate, 
                         value: it.formatDate(publication.releaseDate, it.resume.settings),
-                        classes: 'article__date'
+                        classes: 'article__date margin-left-small'
                     }) %>
+                    </div>
+              
                     <%~ include('key-url-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.website, 
                         value: publication.website,
-                        classes: 'article__url'
+                        classes: 'article__url margin-left-small'
                     }) %>
                 </div>
                 <div class="article-content">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.summary, 
                         value: publication.summary,
-                        classes: 'article__text'
+                        classes: 'article__text margin-left-small less--width'
                     }) %>
                 </div>
             </article>

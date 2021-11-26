@@ -1,12 +1,13 @@
 <section id="profiles" class="profiles">
     <% if(it.resume.settings?.labels?.categoryProperty?.profile?.categoryTitle) { %>
-        <header>
+        <header class="header">
             <%= it.resume.settings.labels.categoryProperty.profile.categoryTitle %>
         </header>
     <% } %>
-    <div class="article-container">
+    <div class="article-container--profile">
         <% it.resume.basics.profiles?.forEach(function(profile){ %>
-            <article>
+        <div class="profile--container">
+            <article >
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.profile, showDelete: true, id: profile.id}) %>
                 <%~ include('profile-item', {
                     label: profile.network,
@@ -14,6 +15,7 @@
                     classes: 'fab'
                 }) %>
             </article>
+            </div>
         <% }) %>
         <%~ include('add', {categoryKey: it.resume?.settings?.categoryKeys?.profile}) %>
     </div>

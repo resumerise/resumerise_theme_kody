@@ -1,6 +1,6 @@
 <section id="references" class="references">
 	<% if(it.resume.settings?.labels?.categoryProperty?.reference?.categoryTitle) { %>
-		<header>
+		<header class="header">
 			<%= it.resume.settings.labels.categoryProperty.reference.categoryTitle %>
 		</header>
 	<% } %>
@@ -12,14 +12,14 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.reference?.name, 
 						value: reference.name,
-						classes: 'article__title'
+						classes: 'article__title margin-left-small'
 					}) %>
 				</div>
 				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.reference?.reference, 
 						value: reference.reference,
-						classes: 'article__subtitle'
+						classes: 'no-line-article__subtitle margin-left-small reference--less-width'
 					}) %>
 				</div>
 			</article>
