@@ -44,8 +44,8 @@ a {
 @media print {
   body {
     width: 21cm;
-    height: 29.7cm;
-    margin: 5mm 0 30mm 16mm;
+    height: 35cm;
+    margin: 1.5mm 0 30mm 16mm;
   }
   .article__date {
     align-items: flex-start !important;
@@ -326,11 +326,12 @@ li {
   width: 100%;
 }
 .left__section {
-  width: 50%;
+  width: 45%;
   order: 1;
+  margin-right: 5em;
 }
 .right__section {
-  width: 50%;
+  width: 45%;
   order: 2;
 }
 
@@ -414,6 +415,7 @@ li {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 0;
   }
   .right__section {
     width: 100%;
