@@ -8,23 +8,26 @@
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.certificate, showDelete: true, id: certificate.id}) %>
 				<div class="article-header">
 				<div class="title__date__container">
+				<div class="article__title__subtitle__container">
 				<%~ include('key-value-item', {
-					label: it.resume.settings?.labels?.categoryProperty?.certificate?.issuer, 
-					value: certificate.issuer,
-					classes: 'article__title margin-left-small'
+				label: it.resume.settings?.labels?.categoryProperty?.certificate?.issuer, 
+				value: certificate.issuer,
+				classes: 'article__title margin-left-medium'
 				}) %>
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.certificate?.issueDate, 
-						value: it.formatDate(certificate.issueDate, it.resume.settings),
-						classes: 'article__date'
-					}) %>
+				<%~ include('key-value-item', {
+				label: it.resume.settings?.labels?.categoryProperty?.certificate?.title, 
+				value: certificate.title,
+				classes: 'article__subtitle margin-left-medium'
+				}) %>
+				</div>
+				<%~ include('key-value-item', {
+					label: it.resume.settings?.labels?.categoryProperty?.certificate?.issueDate, 
+					value: it.formatDate(certificate.issueDate, it.resume.settings),
+					classes: 'article__date margin-left-small'
+				}) %>
 				</div>
 
-		           <%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.certificate?.title, 
-						value: certificate.title,
-						classes: 'no-line-article__subtitle margin-left-small less--width'
-					}) %>
+		
 				</div>
 			</article>
 		<% }) %>
