@@ -23,7 +23,6 @@
 					}) %>
 					</div>
 					<%~ include('date-range', {
-						formatDate: it.formatDate, 
 						startDate: education.startDate,
 						endDate: education.endDate,
 						present: education.present,
