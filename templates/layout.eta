@@ -45,15 +45,16 @@
 				<!-- margin boxes (END) -->
 			<% } %>
 
-			<!-- BASICS -->
-			<%~ include("basic", {
-				resume: it.resume
-			}) %>
 
 			<div class="main-wrapper">			
 				<div>			
-					<!-- PROJECT -->
+					<!-- BASICS -->
 					<div class="counter-reset"></div>
+					<%~ include("basic", {
+						resume: it.resume
+					}) %>
+
+					<!-- PROJECT -->
 					<%~ include("project", {
 						resume: it.resume
 					}) %>
