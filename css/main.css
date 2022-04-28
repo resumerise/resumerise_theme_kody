@@ -1045,9 +1045,9 @@ header::before {
   margin-bottom: 2em;
 }
 
-.INTERACTIVE .profiles article {}
-
-padding: 2em 0;
+.INTERACTIVE .profiles article {
+  padding: 2em 0;
+}
 
 .INTERACTIVE .profiles .article-container {
   display: flex;
