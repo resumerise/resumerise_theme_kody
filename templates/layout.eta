@@ -49,12 +49,12 @@
 			<div class="main-wrapper">			
 				<div>			
 					<!-- BASICS -->
-					<div class="counter-reset"></div>
 					<%~ include("basic", {
 						resume: it.resume
 					}) %>
 
 					<!-- PROJECT -->
+					<div class="counter-reset"></div>
 					<%~ include("project", {
 						resume: it.resume
 					}) %>

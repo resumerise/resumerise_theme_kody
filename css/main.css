@@ -253,7 +253,7 @@ header {
   font-size: var(--big-font-size);
   color: var(--article-title-color);
   font-weight: var(--font-700);
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: .3px;
   margin-bottom: 2rem;
 }
@@ -261,9 +261,10 @@ header {
 header::before {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: -5px;
   height: 5px;
   width: 100%;
+  -webkit-print-color-adjust: exact;
   background-color: var(--first-color);
 }
 
@@ -450,12 +451,14 @@ header::before {
 }
 
 .home__title {
+  -webkit-print-color-adjust: exact;
   font-size: var(--biggest-font-size);
-  font-weight: var(--font-600);
+  font-weight: var(--font-700);
   color: var(--black-color);
   text-shadow: -2px 5px var(--first-color);
   line-height: 1;
   margin-bottom: .25rem;
+  text-transform: uppercase;
 }
 
 .home__subtitle {
@@ -592,7 +595,7 @@ header::before {
   }
 }
 
-@media print, screen and (min-width: 668px) {
+@media screen and (min-width: 668px) {
   .main-wrapper {
     display: flex;
   }
@@ -726,6 +729,7 @@ header::before {
     grid-template-columns: none;
     max-width: none;
     margin: 0;
+    padding: 0;
     gap: 0;
   }
 
@@ -741,9 +745,19 @@ header::before {
     user-select: none;
   }
 
-  :is(.skills, .languages, .interests) .article-container {
+  :is(.skills, .languages, .interests, .education) .article-container {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* .education .article-container {
+    gap: 0;
+    margin-left: 0 !important;
+  }
+
+  .education .article__date {
+    flex-direction: column;
+    align-items: flex-start;
+  } */
 
   .pagedjs_margin {
     font-size: var(--print-margin-font-size);
