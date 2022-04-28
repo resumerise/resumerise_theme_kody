@@ -1,38 +1,34 @@
-<section id="skills" class="skills">
+<section class="skills container section" id="skills">
 	<% if(it.resume.settings?.labels?.categoryProperty?.skill?.categoryTitle) { %>
-		<header class="header">
-			<%= it.resume.settings.labels.categoryProperty.skill.categoryTitle %>
-		</header>
-	<% } %> 
-	<div class="article-container">
-		<% it.resume?.skills.forEach(function(skill) { %>
+		<header><%= it.resume.settings.labels.categoryProperty.skill.categoryTitle %></header>
+	<% } %>
+
+	<div class="article-container grid">
+		<% Object.entries(it.resume?.skills.reduce(function (r, a) { r[a.category] = r[a.category] || []; r[a.category].push(a); return r; }, Object.create(null))).forEach(([category, data]) => { %>
 			<article>
-				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.skill}) %>
-				<div class="article-header">
-				<div class="title__date__container">
-				<div class="article__title__subtitle__container">
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.skill?.name, 
-						value: skill.name,
-						classes: 'article__title margin-left-small'
-					}) %>
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.skill?.level, 
-						value: skill.level,
-						classes: 'article__subtitle margin-left-small'
-					}) %>
-					</div>
-					</div>
-				</div>
-				<div class="article-content">
-					<%~ include('list', {
-						label: it.resume.settings?.labels?.categoryProperty?.skill?.keywords, 
-						data: skill.keywords,
-						classes: 'article__list margin-left-small'
-					}) %>
+				<%~ include('key-value-item', {
+					value: category,
+					classes: 'article__title s-at'
+				}) %>
+
+				<div class="article-content grid s-c no-m">
+					<% data.forEach(function(skill) { %>
+						<div class="skills__progress grid">
+							<%~ include('key-value-item', {
+								value: skill.name,
+								classes: 'article__skills-title'
+							}) %>
+							<%~ include('skill-rating', {
+								percentage: Math.ceil(100/5 * skill.level)
+							}) %>
+							<%~ include('list', {
+								data: skill.keywords,
+								classes: 'article__list'
+							}) %>
+						</div>
+					<% }) %>
 				</div>
 			</article>
 		<% }) %>
-		<%~ include('add', {categoryKey: it.resume?.settings?.categoryKeys?.skill}) %>
 	</div>
 </section>

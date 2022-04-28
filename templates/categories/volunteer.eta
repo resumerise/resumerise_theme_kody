@@ -1,57 +1,61 @@
-<section id="volunteer" class="volunteer">
+<section class="volunteer container section" id="volunteer">
 	<% if(it.resume.settings?.labels?.categoryProperty?.volunteer?.categoryTitle) { %>
-		<header class="header">
-			<%= it.resume.settings.labels.categoryProperty.volunteer.categoryTitle %>
-		</header>
+		<header><%= it.resume.settings.labels.categoryProperty.volunteer.categoryTitle %></header>
 	<% } %>
-	<div class="article-container">
+
+	<div class="article-container grid">
 		<% it.resume?.volunteer.forEach(function(volunteer) { %>
-			<article>
-				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.volunteer, showDelete: true, id: volunteer.id}) %>
-				<div class="article-header">
-				<div class="title__date__container">
-				<div class="article__title__subtitle__container">
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.organization, 
-						value: volunteer.organization,
-						classes: 'article__title margin-left-medium'
-					}) %>
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.position, 
-						value: volunteer.position,
-						classes: 'article__subtitle margin-left-medium'
-					}) %>
+			<article class="with-header-date grid">
+				<div class="article-wrapper">
+					<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.volunteer, showDelete: true, id: volunteer.id}) %>
+					<div class="article__date">
+						<%~ include('date-range', {
+							startDate: volunteer.startDate,
+							endDate: volunteer.endDate,
+							present: volunteer.present,
+						}) %>
+						<%~ include('key-value-item', {
+							label: it.resume.settings?.labels?.durationLabel, 
+							value: volunteer.durationLabel,
+							classes: 'article__text duration'
+						}) %>
 					</div>
-					<%~ include('date-range', {
-						startDate: volunteer.startDate,
-						endDate: volunteer.endDate,
-						present: volunteer.present,
-						settings: it.resume.settings,
-						classes: 'article__date margin-left-small left__section__article__date'
-					}) %>
+
+					<div class="article-header">
+						<%~ include('key-value-item', {
+							label: it.resume.settings?.labels?.categoryProperty?.volunteer?.organization, 
+							value: volunteer.organization,
+							classes: 'article__title'
+						}) %>
+						<%~ include('key-value-item', {
+							label: it.resume.settings?.labels?.categoryProperty?.volunteer?.position, 
+							value: volunteer.position,
+							classes: 'article__subtitle'
+						}) %>
+						<%~ include('key-url-item', {
+							label: it.resume.settings?.labels?.categoryProperty?.volunteer?.website, 
+							value: volunteer.website,
+							classes: 'article__url'
+						}) %>
 					</div>
-		
-					<%~ include('key-url-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.website, 
-						value: volunteer.website,
-						classes: 'article__url margin-left-small'
-					}) %>
 				</div>
+
 				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.summary, 
 						value: volunteer.summary,
-						classes: 'article__text margin-left-small less--width'
+						classes: 'article__description'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.highlights, 
 						data: volunteer.highlights,
 						showLabel: true,
-						classes: 'article__list margin-left-small'
+						classes: 'article__list'
 					}) %>
 				</div>
 			</article>
 		<% }) %>
+		
 		<%~ include('add', {categoryKey: it.resume?.settings?.categoryKeys?.volunteer}) %>
 	</div>
 </section>

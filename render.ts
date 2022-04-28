@@ -1,5 +1,4 @@
 import * as eta from "https://deno.land/x/eta@v1.6.0/mod.ts";
-
 import {
   getAddItemTemplatePath,
   getNavTemplatePath,
@@ -13,7 +12,11 @@ import {
   getWidgetSkillListFilePath,
 } from "./theme-library.ts";
 
-import { CompileException, getFileContent, Resume } from "./core-library.ts";
+import {
+  Resume,
+  CompileException,
+  getFileContent
+} from "./core-library.ts";
 
 export const render = async (
   resume: Resume,
@@ -24,8 +27,7 @@ export const render = async (
       "./templates/layout.eta",
       import.meta.url,
     );
-    const css = await getFileContent("./css/style.css", import.meta.url);
-
+    const mainCss = await getFileContent("./css/main.css", import.meta.url);
     const awardTemplateName = "awards";
     eta.templates.define(
       awardTemplateName,
@@ -169,11 +171,44 @@ export const render = async (
       ),
     );
 
+    const coverTemplate = "cover";
+    eta.templates.define(
+      coverTemplate,
+      eta.compile(
+        await getFileContent(
+          "./templates/cover.eta",
+          import.meta.url,
+        ),
+      ),
+    );
+
+    const tocTemplate = "toc";
+    eta.templates.define(
+      tocTemplate,
+      eta.compile(
+        await getFileContent(
+          "./templates/toc.eta",
+          import.meta.url,
+        ),
+      ),
+    );
+
     const dateRangeTemplateName = "date-range";
     eta.templates.define(
       dateRangeTemplateName,
       eta.compile(
         await getWidgetDateRangeFilePath(),
+      ),
+    );
+
+    const ratingTemplateName = "skill-rating";
+    eta.templates.define(
+      ratingTemplateName,
+      eta.compile(
+        await getFileContent(
+          "./templates/widgets/rating.eta",
+          import.meta.url,
+        ),
       ),
     );
 
@@ -214,6 +249,14 @@ export const render = async (
       listTemplateName,
       eta.compile(
         await getWidgetListFilePath(),
+      ),
+    );
+
+    const skillListTemplateName = "skillList";
+    eta.templates.define(
+      skillListTemplateName,
+      eta.compile(
+        await getWidgetSkillListFilePath(),
       ),
     );
 
@@ -280,7 +323,7 @@ export const render = async (
       orderedMap.set(resumeCategory, map.get(resumeCategory)!);
     });
     const result = await eta.render(layout, {
-      css: css,
+      mainCss: mainCss,
       widgetCss: widgetCss,
       resume: resume,
       type: type,

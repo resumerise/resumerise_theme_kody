@@ -1,49 +1,48 @@
-<section id="publications" class="publications">
+<section class="publications container section" id="publications">
 	<% if(it.resume.settings?.labels?.categoryProperty?.publication?.categoryTitle) { %>
-		<header class="header">
-		    <%= it.resume.settings.labels.categoryProperty.publication.categoryTitle %>
-		</header>
+		<header><%= it.resume.settings.labels.categoryProperty.publication.categoryTitle %></header>
 	<% } %>
-    <div class="article-container">
+
+    <div class="article-container grid">
         <% it.resume?.publications.forEach(function(publication) { %>
-            <article>
-                <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.publication, id: publication.id, showDelete: true}) %>
-                <div class="article-header">
-                <div class="title__date__container">
-                <div class="article__title__subtitle__container">
-                    <%~ include('key-value-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.publication?.name, 
-                        value: publication.name,
-                        classes: 'article__title margin-left-medium'
-                    }) %>
-                    <%~ include('key-value-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.publication?.publisher, 
-                        value: publication.publisher,
-                        classes: 'article__subtitle margin-left-medium'
-                    }) %>
-                    </div>
+            <article class="grid">
+                <div>
+                    <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.publication, id: publication.id, showDelete: true}) %>
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.releaseDate, 
                         value: publication.releaseDate,
-                        classes: 'article__date margin-left-small'
+                        classes: 'article__date no-flex'
                     }) %>
+
+                    <div class="article-header">
+                        <%~ include('key-value-item', {
+                            label: it.resume.settings?.labels?.categoryProperty?.publication?.name, 
+                            value: publication.name,
+                            classes: 'article__title'
+                        }) %>
+                        <%~ include('key-value-item', {
+                            label: it.resume.settings?.labels?.categoryProperty?.publication?.publisher, 
+                            value: publication.publisher,
+                            classes: 'article__subtitle'
+                        }) %>
+                        <%~ include('key-url-item', {
+                            label: it.resume.settings?.labels?.categoryProperty?.publication?.website, 
+                            value: publication.website,
+                            classes: 'article__url'
+                        }) %>
                     </div>
-              
-                    <%~ include('key-url-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.publication?.website, 
-                        value: publication.website,
-                        classes: 'article__url margin-left-small'
-                    }) %>
                 </div>
-                <div class="article-content">
+
+                <div class="article-content no-m">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.summary, 
                         value: publication.summary,
-                        classes: 'article__text margin-left-small less--width'
+                        classes: 'article__description'
                     }) %>
                 </div>
             </article>
         <% }) %>
+        
 	    <%~ include('add', {categoryKey: it.resume?.settings?.categoryKeys?.publication}) %>
     </div>
 </section>

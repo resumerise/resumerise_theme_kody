@@ -1,10 +1,9 @@
-<section id="references" class="references">
+<section class="references container section" id="references">
 	<% if(it.resume.settings?.labels?.categoryProperty?.reference?.categoryTitle) { %>
-		<header class="header">
-			<%= it.resume.settings.labels.categoryProperty.reference.categoryTitle %>
-		</header>
+		<header><%= it.resume.settings.labels.categoryProperty.reference.categoryTitle %></header>
 	<% } %>
-	<div class="article-container">
+
+	<div class="article-container grid">
 		<% it.resume?.references.forEach(function(reference) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.reference, id: reference.id, showDelete: true}) %>
@@ -12,18 +11,20 @@
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.reference?.name, 
 						value: reference.name,
-						classes: 'article__title margin-left-small'
+						classes: 'article__title'
 					}) %>
 				</div>
-				<div class="article-content">
+
+				<div class="article-content no-m">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.reference?.reference, 
 						value: reference.reference,
-						classes: 'no-line-article__subtitle margin-left-small reference--less-width'
+						classes: 'article__description'
 					}) %>
 				</div>
 			</article>
 		<% }) %>
+		
 		<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.reference}) %>
 	</div>
 </section>

@@ -1,36 +1,35 @@
-<section id="certifications" class="certifications">
+<section class="certifications container section" id="certifications">
 	<% if (it.resume.settings?.labels?.categoryProperty?.certificate?.categoryTitle) { %>
-		<header class="header"><%= it.resume.settings?.labels?.categoryProperty?.certificate?.categoryTitle %></header>
+		<header><%= it.resume.settings?.labels?.categoryProperty?.certificate?.categoryTitle %></header>
 	<% } %>
-	<div class="article-container">
-		<% it.resume?.certifications.forEach(function(certificate) { %>
-			<article>
-				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.certificate, showDelete: true, id: certificate.id}) %>
-				<div class="article-header">
-				<div class="title__date__container">
-				<div class="article__title__subtitle__container">
-				<%~ include('key-value-item', {
-				label: it.resume.settings?.labels?.categoryProperty?.certificate?.issuer, 
-				value: certificate.issuer,
-				classes: 'article__title margin-left-medium'
-				}) %>
-				<%~ include('key-value-item', {
-				label: it.resume.settings?.labels?.categoryProperty?.certificate?.title, 
-				value: certificate.title,
-				classes: 'article__subtitle margin-left-medium'
-				}) %>
-				</div>
-				<%~ include('key-value-item', {
-					label: it.resume.settings?.labels?.categoryProperty?.certificate?.issueDate, 
-					value: certificate.issueDate,
-					classes: 'article__date margin-left-small'
-				}) %>
-				</div>
 
-		
+	<div class="article-container grid">
+		<% it.resume?.certifications.forEach(function(certificate) { %>
+			<article class="grid">
+				<div>
+					<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.certificate, showDelete: true, id: certificate.id}) %>
+					<%~ include('key-value-item', {
+						label: it.resume.settings?.labels?.categoryProperty?.certificate?.issueDate, 
+						value: certificate.issueDate,
+						classes: 'article__date no-flex'
+					}) %>
+
+					<div class="article-header">
+						<%~ include('key-value-item', {
+							label: it.resume.settings?.labels?.categoryProperty?.certificate?.issuer, 
+							value: certificate.issuer,
+							classes: 'article__title'
+						}) %>
+						<%~ include('key-value-item', {
+							label: it.resume.settings?.labels?.categoryProperty?.certificate?.title, 
+							value: certificate.title,
+							classes: 'article__text'
+						}) %>
+					</div>
 				</div>
 			</article>
 		<% }) %>
 	</div>
+	
 	<%~ include('add', {categoryKey: it.resume?.settings?.categoryKeys?.certificate}) %>
 </section>
