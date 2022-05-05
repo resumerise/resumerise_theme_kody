@@ -745,8 +745,12 @@ header::before {
     user-select: none;
   }
 
-  :is(.skills, .languages, .interests, .education) .article-container {
+  :is(.skills, .languages, .interests) .article-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article-container {
+    margin-left: 0 !important;
   }
 
   /* .education .article-container {
