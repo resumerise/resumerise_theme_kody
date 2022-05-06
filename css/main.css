@@ -753,16 +753,6 @@ header::before {
     margin-left: 0 !important;
   }
 
-  /* .education .article-container {
-    gap: 0;
-    margin-left: 0 !important;
-  }
-
-  .education .article__date {
-    flex-direction: column;
-    align-items: flex-start;
-  } */
-
   .pagedjs_margin {
     font-size: var(--print-margin-font-size);
   }
@@ -984,8 +974,8 @@ header::before {
     color: black !important;
   }
 
-  .cover-page .picture {
-    text-align: center;
+  .cover-page .home__img {
+    margin-top: -8rem;
   }
 
   .cover-page__header {
